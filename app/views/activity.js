@@ -110,7 +110,7 @@ var ActivityPage = React.createClass({
 	        			return (
 	        				<div className='list' key={key}>
 				            	<div className="list_left">
-				            		<img className="list_img" src={item.image} width="80" alt="" />
+				            		<img className="list_img" src={item.image} alt="" />
 				            		<div className="list_dec">
 				            			<p className="large_title">{item.name}</p>
 				            			<p>围观：{item.copynum}</p>
