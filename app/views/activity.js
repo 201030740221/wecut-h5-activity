@@ -41,11 +41,12 @@ var ActivityPage = React.createClass({
     	console.log(_time);
     	let	ts = new Date(_time),
 			newYear = true;
+			console.log(ts);
 		
 		if((new Date()) > ts){
 			// The new year is here! Count towards something else.
 			// Notice the *1000 at the end - time must be in milliseconds
-			ts = (new Date()).getTime() + 10*24*60*60*1000/2;
+			ts = (new Date()).getTime() + 10*24*60*60*1000/1.5;
 			newYear = false;
 		}
 		console.log(ts,'ts');
@@ -91,7 +92,7 @@ var ActivityPage = React.createClass({
             <div className="whole activity_page">
 		        <div className="p_r">
 		            <img className="activity_banner" src="images/logo.png" alt=""/>
-		            <div className="time_data"><span className='time_title'>离截至时间：</span><span id="countdown"></span></div>
+		            <div className="time_data"><span className='time_title'>离截至时间：</span>{this.state.time}</div>
 		        </div>
 		        <div className="activity_content first_content">
 		            <p className="activity_dec">
