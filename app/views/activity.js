@@ -91,7 +91,7 @@ var ActivityPage = React.createClass({
             <div className="whole activity_page">
 		        <div className="p_r">
 		            <img className="activity_banner" src="images/logo.png" alt=""/>
-		            <div className="time_data">离截至时间：<span id="countdown"></span></div>
+		            <div className="time_data"><span className='time_title'>离截至时间：</span><span id="countdown"></span></div>
 		        </div>
 		        <div className="activity_content">
 		            <p className="activity_dec">
