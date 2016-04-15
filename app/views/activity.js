@@ -93,7 +93,7 @@ var ActivityPage = React.createClass({
 		            <img className="activity_banner" src="images/logo.png" alt=""/>
 		            <div className="time_data"><span className='time_title'>离截至时间：</span><span id="countdown"></span></div>
 		        </div>
-		        <div className="activity_content">
+		        <div className="activity_content first_content">
 		            <p className="activity_dec">
 		                如果你开直播，最想哪位欧巴来围观送花
 		            </p>
@@ -102,6 +102,9 @@ var ActivityPage = React.createClass({
 		            </p>
 		            <p className="activity_dec">
 		                - 再点击左下角的【翻拍】
+		            </p>
+		            <p className="activity_dec">
+		                - 官方会挑选参与的优质用户，送出3台美图V4s手机！
 		            </p>
 		        </div>
 		        <div className="activity_content">
