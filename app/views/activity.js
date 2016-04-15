@@ -109,7 +109,7 @@ var ActivityPage = React.createClass({
 		        	star.map(function(item,key){
 	        			return (
 	        				<div className='list' key={key}>
-				            	<div className="list_left fl">
+				            	<div className="list_left">
 				            		<img className="list_img" src={item.image} width="80" alt="" />
 				            		<div className="list_dec">
 				            			<p className="large_title">{item.name}</p>
@@ -117,8 +117,8 @@ var ActivityPage = React.createClass({
 				            		</div>
 				            		<div className="view_icon" onClick={self.viewHandle.bind(null,item.tid)}></div>
 				            	</div>
-				            	<div className="list_right fr">
-				            		<div className="share_icon hidden"></div>
+				            	<div className="list_right fr hidden">
+				            		<div className="share_icon "></div>
 				            	</div>
 				            </div>
 	        			)
