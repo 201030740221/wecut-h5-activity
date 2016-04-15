@@ -1,4 +1,27 @@
 import {Router, Route, IndexRoute, useRouterHistory} from 'react-router';
+var moment = require('moment');
+import CountDown from '../components/count-down.js'
+
+
+var CountDownContent = React.createClass({
+    render: function(){
+        var timeTitle = '离截至时间：';
+        if(this.props.isworking){
+            timeTitle = '距离结束时间：';
+        }
+        if(this.props.days === 0 && this.props.hours === 0 && this.props.minutes === 0 && this.props.seconds === 0){
+            return (
+                <div className="flashsale-countdown time_data"><span className="time_title">{timeTitle}</span><em>加载中...</em> </div>
+            );
+        } else{
+            return (
+                <div className="flashsale-countdown time_data"><span className="time_title">{timeTitle}</span><em>{this.props.days + "天 " + this.props.hours + ":" + this.props.minutes + ":" + this.props.seconds}</em> </div>
+            );
+        }
+
+    }
+});
+
 
 var ActivityPage = React.createClass({
 	contextTypes: {
@@ -37,44 +60,24 @@ var ActivityPage = React.createClass({
     	doGoTule(tid);
     },
 
-    countHandle(_time){
-    	console.log(_time);
-    	let	ts = new Date(_time),
-			newYear = true;
-			console.log(ts);
-		
-		if((new Date()) > ts){
-			// The new year is here! Count towards something else.
-			// Notice the *1000 at the end - time must be in milliseconds
-			ts = (new Date()).getTime() + 10*24*60*60*1000/1.5;
-			newYear = false;
-		}
-		console.log(ts,'ts');
-			
-		$('#countdown').countdown({
-			timestamp	: ts,
-			callback	: function(days, hours, minutes, seconds){
-				
-				var message = "";
-				
-				message += days + " day" + ( days==1 ? '':'s' ) + ", ";
-				message += hours + " hour" + ( hours==1 ? '':'s' ) + ", ";
-				message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " and ";
-				message += seconds + " second" + ( seconds==1 ? '':'s' ) + " <br />";
-				
-				if(newYear){
-					message += "left until the new year!";
-				}
-				else {
-					message += "left to 10 days from now!";
-				}
-				
-			}
-		});
-    },
     componentDidUpdate(){
 
-    	this.countHandle(this.state.time);
+    },
+
+     setBeginTime: function(){
+       return '2016-04-15 00:00:12';
+    },
+     // 准备期间 <div className="flashsale-countdown">剩余时间：<em>{this.state.flashsale.countdownText}</em> </div>
+    renderReady: function(){
+        return (
+            <div>
+                <CountDown 
+                	callback={this.setBeginTime} 
+                	data={{ startTime: '2016-04-15 00:00:12', endTime: '2016-04-22 00:00:33' }}
+            	 	component={CountDownContent} 
+            	 />
+            </div>
+        );
     },
 
     render: function () {
@@ -92,7 +95,9 @@ var ActivityPage = React.createClass({
             <div className="whole activity_page">
 		        <div className="p_r">
 		            <img className="activity_banner" src="images/logo.png" alt=""/>
-		            <div className="time_data"><span className='time_title'>离截至时间：</span>{this.state.time}</div>
+
+	            	{this.renderReady()}
+
 		        </div>
 		        <div className="activity_content first_content">
 		            <p className="activity_dec">

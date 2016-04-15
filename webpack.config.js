@@ -15,7 +15,6 @@ module.exports = {
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8002',
     path.resolve(__dirname, 'app/_window.js'),
-    path.resolve(__dirname, 'app/views/jquery-countdown.js'),
     path.resolve(__dirname, 'app/main.jsx')
   ],
   output: {
