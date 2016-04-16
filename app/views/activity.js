@@ -61,6 +61,15 @@ var ActivityPage = React.createClass({
     viewHandle(tid){
     	doGoTule(tid);
     },
+    shareHandle(_item){
+
+        let _title = '- #'+_item.name+'#正在Wecut围观我的直播！';
+        let _content = '-你也快来一起玩啊！';
+        let picUrl = _item.image;
+        let url = 'http://hd.wecut.com/pageview/starlive/share/index.html?id='+_item.id;
+        console.log(_title,_content,picUrl,url);
+        doGoWebShare(_title,_content,picUrl,url);
+    },
 
     componentDidUpdate(){
 
@@ -120,7 +129,7 @@ var ActivityPage = React.createClass({
 		        	star.map(function(item,key){
 	        			return (
 	        				<div className='list' key={key}>
-				            	<div className="list_left">
+				            	<div className="list_left fl">
 				            		<img className="list_img" src={item.image} alt="" />
 				            		<div className="list_dec">
 				            			<p className="large_title">{item.name}</p>
@@ -128,8 +137,8 @@ var ActivityPage = React.createClass({
 				            		</div>
 				            		<div className="view_icon" onClick={self.viewHandle.bind(null,item.tid)}></div>
 				            	</div>
-				            	<div className="list_right fr hidden">
-				            		<div className="share_icon "></div>
+				            	<div className="list_right fr">
+				            		<div className="share_icon " onClick={self.shareHandle.bind(null,item)}></div>
 				            	</div>
 				            </div>
 	        			)
