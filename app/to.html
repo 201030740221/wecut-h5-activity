@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>欧巴来看我直播</title>
+</head>
+<body>
+   <script type="text/javascript">
+       var _url = 'www.baidu.com/1.html';
+       var _str_index = _url.indexOf('.html');
+       console.log(_str_index,_url.length);
+       if(_str_index){
+           var last = _url.lastIndexOf('/');
+           console.log(last);
+           if(_str_index>last){
+           		var _length = _str_index - last;
+               var _this_str = _url.substr(last+1,_length-1);
+               console.log(_this_str);
+               window.location.href = 'http://hd.wecut.com/pageview/starlive/share/index.html?id='+_this_str;
+           }
+       }
+
+   </script>
+</body>
+</html>
