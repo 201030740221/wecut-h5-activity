@@ -39,7 +39,7 @@ var ActivityPage = React.createClass({
 
 	        		self.setState({
 	        			loading: false,
-	        			time: data.data.seconds,
+	        			end_time: data.data.seconds,
 	        			source: data
 	        		})
 	                //处理data数据
@@ -47,9 +47,11 @@ var ActivityPage = React.createClass({
 		});
 	},
     getInitialState: function () {
+    	let _startTime = moment().format('YYYY-MM-DD HH:mm:ss');
         return {
         	source: {},
-        	time: null,
+        	start_time: _startTime,
+        	end_time: '',
         	loading: true
         };
     },
@@ -73,7 +75,7 @@ var ActivityPage = React.createClass({
             <div>
                 <CountDown 
                 	callback={this.setBeginTime} 
-                	data={{ startTime: '2016-04-15 00:00:12', endTime: '2016-04-22 00:00:33' }}
+                	data={{ startTime: this.state.start_time, endTime: this.state.end_time }}
             	 	component={CountDownContent} 
             	 />
             </div>
