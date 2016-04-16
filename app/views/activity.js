@@ -66,7 +66,7 @@ var ActivityPage = React.createClass({
         let _title = '- #'+_item.name+'#正在Wecut围观我的直播！';
         let _content = '-你也快来一起玩啊！';
         let picUrl = _item.image;
-        let url = 'http://hd.wecut.com/pageview/starlive/share/index.html?id='+_item.id;
+        let url = 'hd.wecut.com/pageview/starlive/share/index.html?id='+_item.id;
         console.log(_title,_content,picUrl,url);
         doGoWebShare(_title,_content,picUrl,url);
     },
